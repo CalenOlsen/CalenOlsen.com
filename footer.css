@@ -1,0 +1,13 @@
+footer {
+    width: 100%;
+    background-color: var(--main-accent);
+    color: var(--main-light)
+}
+
+.footer-table {
+    width: 100%;
+}
+
+    .footer-table tr td {
+        text-align: center;
+    }

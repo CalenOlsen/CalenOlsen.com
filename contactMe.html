@@ -1,70 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="header.css">
-  <link rel="stylesheet" href="home.css">
-  <link rel="stylesheet" href="variables.css">
-  <link rel="stylesheet" href="contactMe.css">
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="variables.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="contactMe.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-  <script>
-    function validateRecaptcha() {
-      var response = grecaptcha.getResponse();
-      if (response.length === 0) {
-        alert("I don't want spam! Are you a human?");
-        return false;
-      } else {
-        return true;
-      }
-    }
-  </script>
+    <script>
+        function validateRecaptcha() {
+            var response = grecaptcha.getResponse();
+            if (response.length === 0) {
+                alert("I don't want spam! Are you a human?");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
 
-  <script type="text/javascript">
+    <script type="text/javascript">
 
-    function handleIt() {
-      alert("hello");
-    }
+        function handleIt() {
+            alert("You will be hearing from me soon!");
+        }
 
-  </script>
+    </script>
 
 </head>
 <body>
-  <!--#include virtual="./header.html"-->
-  <div class="content-wrapper-wrapper">
-    <div class="content-wrapper">
-      <h2>
-        Like what you see? Send me an automated email with some contact info and I will reach out to you soon!
-      </h2>
-      <form id="contactme" action="javascript:handleIt()" onsubmit="return validateRecaptcha();">
-        <div>
-          <label>First name:</label>
-          <input type="text">
-          <label>Last name:</label>
-          <input type="text">
-          <label>Company:</label>
-          <input type="text">
-        </div>
+    <!--#include virtual="./header.html"-->
+    <div class="content-wrapper-wrapper">
+        <div class="content-wrapper">
+            <h2>
+                Like what you see? Send me an automated email with some contact info and I will reach out to you soon!
+            </h2>
+            <form id="contactme" action="javascript:handleIt()" onsubmit="return validateRecaptcha();">
+                <div>
+                    <label>First name:</label>
+                    <input type="text">
+                    <label>Last name:</label>
+                    <input type="text">
+                    <label>Company:</label>
+                    <input type="text">
+                </div>
 
-        <div>
-          <label>Email:</label>
-          <input type="text">
-          <label>Phone Number:</label>
-          <input type="text">
-        </div>
+                <div>
+                    <label>Email:</label>
+                    <input type="text">
+                    <label>Phone Number:</label>
+                    <input type="text">
+                </div>
 
-        <div style="align-items: center">
-          <label>Extra Info:</label>
-          <textarea type="text"></textarea>
+                <div style="align-items: center">
+                    <label>Extra Info:</label>
+                    <textarea type="text"></textarea>
+                </div>
+                <div class="g-recaptcha" data-sitekey="6LdbaqokAAAAAD4qqBm78sJ7AkFp3X8v8mwtGM5w"></div>
+                <div>
+                    <input type="submit" value="submit">
+                </div>
+            </form>
         </div>
-          <div class="g-recaptcha" data-sitekey="6LdbaqokAAAAAD4qqBm78sJ7AkFp3X8v8mwtGM5w"></div>
-         <div>
-           <input type="submit" value="submit">
-         </div>
-      </form>
     </div>
-  </div>
-  <footer>
-    big bet
-  </footer>
+    <!--#include virtual="./footer.html"-->
+
 </body>
 </html>
