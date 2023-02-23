@@ -2,8 +2,8 @@ body{
     margin: 0;
     min-height: 100vh;
 }
-.header-wrapper{
-    background-color: red;
+.header-wrapper {
+    background-color: #d00000;
     display: flex;
     width: 100%;
     margin: 0;
@@ -18,21 +18,23 @@ body{
 
 .extra-info{
     display: flex;
-    align-items:center;
+    align-items: center;
     width: 100%;
     justify-content: flex-end;
-    padding-right: 20px;
+    padding-right: 7%;
 }
 
-.extra-info div {
-    padding: 0px 20px 0px 20px;
-    color: gray;
-    font-size: 20px;
-    font-weight: 300;
-}
+    .extra-info div {
+        padding: 0px 4% 0px 4%;
+        color: #4f4848;
+        font-size: 16px;
+        font-weight: 300;
+        font-family: Helvetica;
+        
+    }
 
-.experince{
-
+.experience {
+        
 }
 
 .education{
@@ -43,9 +45,18 @@ body{
 
 }
 
+.contact-me {
+
+}
+
 .about-me{
 
 }
 
-
+.content-wrapper {
+    margin-top: 58px;
+    background-color: black;
+    color: white;
+    height: 1000px;
+}
 
