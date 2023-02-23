@@ -1,4 +1,11 @@
-.sticky {
+*,
+*::before,
+*::after {
+  --main-accent: #d00000;
+  --main-dark: #202020;
+  --main-light: #dddddd;
+}
+  .sticky {
     position: fixed;
     top: 0;
     width: 100%

@@ -1,0 +1,44 @@
+.header-wrapper {
+  background-color: var(--main-accent);
+  display: flex;
+  width: 100%;
+  margin: 0;
+}
+
+.name {
+  padding-left: 25px;
+  font-size: 50px;
+  font-weight: 500;
+  width: 50%;
+}
+
+.extra-info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end;
+  padding-right: 7%;
+}
+
+  .extra-info div {
+    padding: 0px 4% 0px 4%;
+    color: var(--main-light);
+    font-size: 16px;
+    font-weight: 300;
+    font-family: Helvetica;
+  }
+
+.experience {
+}
+
+.education {
+}
+
+.skills {
+}
+
+.contact-me {
+}
+
+.about-me {
+}
