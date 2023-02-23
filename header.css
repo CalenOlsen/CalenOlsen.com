@@ -10,7 +10,12 @@
   font-size: 50px;
   font-weight: 500;
   width: 50%;
+  font-family: 'Times New Roman';
 }
+
+  .name a{
+    color: inherit;
+  }
 
 .extra-info {
   display: flex;
@@ -26,6 +31,10 @@
     font-size: 16px;
     font-weight: 300;
     font-family: Helvetica;
+  }
+
+  .extra-info a{
+    color: inherit;
   }
 
 .experience {
