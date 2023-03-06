@@ -2,140 +2,142 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="variables.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="footer.css">
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="contactMe.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <link rel="stylesheet" href="variables.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="contactMe.css">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-    <script>
-        function validateRecaptcha() {
-            var response = grecaptcha.getResponse();
-            if (response.length === 0) {
-                alert("I don't want spam! Are you a human?");
-                return false;
-            } else {
-                return true;
-            }
-        }
-    </script>
+  <script>
+    function validateRecaptcha() {
+      var response = grecaptcha.getResponse();
+      if (response.length === 0) {
+        alert("I don't want spam! Are you a human?");
+        return false;
+      } else {
+        return true;
+      }
+    }
+  </script>
 
-    <script type="text/javascript">
+  <script type="text/javascript">
 
-        const validateEmail = (email) => {
-        return String(email)
-            .toLowerCase()
-            .match(
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            );
-        };
+    const validateEmail = (email) => {
+      return String(email)
+        .toLowerCase()
+        .match(
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+    };
 
-        const validatePhoneNumber = (phoneNumber) => {
-            if(inputtxt.value.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-        function handleIt() {
-            let firstName = document.forms["contactme"]["firstName"].value;
-            let lastName = document.forms["contactme"]["lastName"].value;
-            let company = document.forms["contactme"]["company"].value;
-            let email = document.forms["contactme"]["email"].value;
-            let phoneNumber = document.forms["contactme"]["phoneNumber"].value;
-            let extraInfo = document.forms["contactme"]["extraInfo"].value;
+    const validatePhoneNumber = (phoneNumber) => {
+      if (inputtxt.value.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+    function handleIt() {
+      let firstName = document.forms["contactme"]["firstName"].value;
+      let lastName = document.forms["contactme"]["lastName"].value;
+      let company = document.forms["contactme"]["company"].value;
+      let email = document.forms["contactme"]["email"].value;
+      let phoneNumber = document.forms["contactme"]["phoneNumber"].value;
+      let extraInfo = document.forms["contactme"]["extraInfo"].value;
 
-            let contactNote = ""
+      let contactNote = ""
 
-            let emailValid = false
-            if (validateEmail(email)) {
-                emailValid = true
-            }else{
-                alert("You have entered an invalid email address!")   
-                return;             
-            }     
-            
-            //phone number validation later
-            // let phoneValid = false
-            // if (validateEmail(phoneNumber)) {
-            //     emailValid = true
-            // }else{
-            //     alert("You have entered an invalid Phone Number!")   
-            //     return;             
-            // }     
+      let emailValid = false
+      if (validateEmail(email)) {
+        emailValid = true
+      } else {
+        alert("You have entered an invalid email address!")
+        return;
+      }
 
-            if (emailValid) {
-                contactNote = "Thank you for leaving a email I will reach out to either " + phoneNumber + " or " + email + "."
-            }
-            
-            var rating = ""
-            var ele = document.getElementsByName('rating');
-          
-            for(i = 0; i < ele.length; i++) {
-                if(ele[i].checked)
-                 rating = "Thank you for the " + ele[i].value + " star rating";
-            }
+      //phone number validation later
+      // let phoneValid = false
+      // if (validateEmail(phoneNumber)) {
+      //     emailValid = true
+      // }else{
+      //     alert("You have entered an invalid Phone Number!")
+      //     return;
+      // }
 
-            alert("Hello, " + firstName + " " + lastName + " from " + company + "\n" + contactNote + "\n" + "Then we can also discuss " + extraInfo + "\n" + rating);
-        }
+      if (emailValid) {
+        contactNote = "Thank you for leaving a email I will reach out to either " + phoneNumber + " or " + email + "."
+      }
 
-    </script>
+      var rating = ""
+      var ele = document.getElementsByName('rating');
+
+      for (i = 0; i < ele.length; i++) {
+        if (ele[i].checked)
+          rating = "Thank you for the " + ele[i].value + " star rating";
+      }
+
+      alert("Hello, " + firstName + " " + lastName + " from " + company + "\n" + contactNote + "\n" + "Then we can also discuss " + extraInfo + "\n" + rating);
+    }
+
+  </script>
 
 </head>
 
 <body>
-    <!--#include virtual="./header.html"-->
-    <div class="content-wrapper-wrapper">
-        <div class="content-wrapper">
-            <h2>
-                Like what you see? Send me an automated email with some contact info and I will reach out to you soon!
-            </h2>
-            <form name="contactme" id="contactme" action="javascript:handleIt()" onsubmit="return validateRecaptcha();">
-                <div>
-                    <label>First name:</label>
-                    <input name="firstName" type="text">
-                    <label>Last name:</label>
-                    <input name="lastName" type="text">
-                    <label>Company:</label>
-                    <input name="company" type="text">
-                </div>
-
-                <div>
-                    <label>Email:</label>
-                    <input name="email" type="text">
-                    <label>Phone Number:</label>
-                    <input name="phoneNumber" type="text">
-                </div>
-
-                <div style="align-items: center">
-                    <label>Extra Info:</label>
-                    <textarea name="extraInfo" type="text"></textarea>
-                </div>
-
-                <div>
-                    <label>Rate the site:</label>
-                    <input type="radio" id="1star" name="rating" value="1">
-                    <label for="age1">1 star</label>
-                    <input type="radio" id="2star" name="rating" value="2">
-                    <label for="age1">2 stars</label>
-                    <input type="radio" id="3star" name="rating" value="3">
-                    <label for="age1">3 stars</label>
-                    <input type="radio" id="4star" name="rating" value="4">
-                    <label for="age1">4 stars</label>
-                    <input type="radio" id="5star" name="rating" value="5">
-                    <label for="age1">5 stars</label>
-                </div>
-
-                <div class="g-recaptcha" data-sitekey="6LdbaqokAAAAAD4qqBm78sJ7AkFp3X8v8mwtGM5w"></div>
-                <div>
-                    <input type="submit" value="submit">
-                </div>
-            </form>
+  <!--#include virtual="./header.html"-->
+  <div class="content-wrapper-wrapper">
+    <div class="content-wrapper">
+      <h2>
+        Like what you see? Send me an automated email with some contact info and I will reach out to you soon!
+      </h2>
+      <form name="contactme" id="contactme" action="javascript:handleIt()" onsubmit="return validateRecaptcha();">
+        <div class="contact-info">
+          <p>About you</p>
+          <label>First Name:</label>
+          <input name="firstName" type="text">
+          <label>Last Name:</label>
+          <input name="lastName" type="text">
+          <label>Company:</label>
+          <input name="company" type="text">
         </div>
+
+        <div class="contact-info">
+          <p>Contact Info</p>
+          <label>Email:</label>
+          <input name="email" type="text">
+          <label>Phone Number:</label>
+          <input name="phoneNumber" type="text">
+        </div>
+        <div class="contact-info" style="flex-direction: column;">
+          <p>Extras</p>
+          <div style="align-items: center;">
+            <label>Extra Info:</label>
+            <textarea name="extraInfo" type="text"></textarea>
+          </div>
+          <div>
+            <label>Rate the site:</label>
+            <input type="radio" id="1star" name="rating" value="1">
+            <label for="age1">1 star</label>
+            <input type="radio" id="2star" name="rating" value="2">
+            <label for="age1">2 stars</label>
+            <input type="radio" id="3star" name="rating" value="3">
+            <label for="age1">3 stars</label>
+            <input type="radio" id="4star" name="rating" value="4">
+            <label for="age1">4 stars</label>
+            <input type="radio" id="5star" name="rating" value="5">
+            <label for="age1">5 stars</label>
+          </div>
+        </div>
+          <div class="g-recaptcha" data-sitekey="6LdbaqokAAAAAD4qqBm78sJ7AkFp3X8v8mwtGM5w"></div>
+          <div>
+            <input type="submit" value="Reach Out" class="submit">
+          </div>
+      </form>
     </div>
-    <!--#include virtual="./footer.html"-->
+  </div>
+  <!--#include virtual="./footer.html"-->
 </body>
 
 </html>
