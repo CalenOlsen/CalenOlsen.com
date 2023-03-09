@@ -4,3 +4,41 @@
     font-size: 30px;
     font-weight: 500;
 }
+
+.top-header {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px 20px 0px;
+}
+
+    .top-header h1 {
+        text-align: center;
+        width: 100%;
+    }
+
+    .top-header p {
+        padding: 0px 00px 0px 20px;
+        font-size: 20px;
+    }
+
+    .top-header img {
+        border-radius: 50%;
+        max-height: 250px;
+    }
+
+    .top-header .download-icon {
+        max-height: 20px;
+        padding: 2px 2px 2px 20px;
+        z-index: 2;
+    }
+
+    .top-header .resume-download {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-style: solid;
+        border-color: var(--main-accent);
+        text-align: center;
+        padding: 10px;
+        margin: 0px 20px;
+    }
