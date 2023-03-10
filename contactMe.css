@@ -1,5 +1,5 @@
 h2 {
-  color: var(--main-light);
+  /*color: var(--main-light);*/
   text-align: center;
   padding: 30px 20px 20px 20px;
 }
@@ -34,17 +34,17 @@ form p {
   top: -25px;
   z-index: 1;
   left: 1em;
-  background-color: var(--main-dark);
+  background-color: var(--main-light);
   color: var(--main-accent);
   padding: 0 5px;
 }
 
     form div input {
       margin: 10px;
-      background-color: var(--main-dark);
+      background-color: var(--main-light);
       border: 0;
       outline: 0;
-      border-bottom: 2px solid var(--main-light);
+      border-bottom: 2px solid var(--main-dark);
       color: var(--main-light);
     }
 
@@ -58,8 +58,8 @@ form p {
 
     form div textarea {
       margin: 10px;
-      background-color: var(--main-dark);
-      border-color: var(--main-light);
+      background-color: var(--main-light);
+      border-color: var(--main-dark);
       border-radius: 5px;
       resize: none;
       width: 50%;

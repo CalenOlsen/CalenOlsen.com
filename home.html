@@ -5,6 +5,23 @@
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="home.css">
+
+    <script>
+        function changeTheme(selectedTheme) {
+            console.log(selectedTheme);
+
+            var element = document.body;
+            if (selectedTheme == 0) {
+                element.className = "";
+            } else if (selectedTheme == 1) {
+                element.className = "light-mode"
+            }
+
+            console.log(element.classList)
+
+        }
+    </script>
+
 </head>
 <body>
     <!--#include virtual="./header.html"-->
