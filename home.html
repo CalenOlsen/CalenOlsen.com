@@ -22,6 +22,8 @@
         }
     </script>
 
+    
+
 </head>
 <body>
     <!--#include virtual="./header.html"-->
@@ -43,19 +45,75 @@
                     </div>
                 </div>
             </div>
-            <p class="skills-header">
-                Skills
-            </p>
-            <ul>
-                <li>Python</li>
-                <li>Javascript</li>
-                <li>c#</li>
-                <li>.net</li>
-                <li>css</li>
-                <li>html</li>
-            </ul>
+            <br />
+            <button class="accordian">
+                <div>
+                    Education
+                </div>
+                <div class="expand-container">
+                    <img class="expand-icon" src="expand.svg" alt="">
+                </div>
+            </button>
+            <div class="panel">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+            <button class="accordian">
+                <div>
+                    Experience
+                </div>
+                <div class="expand-container">
+                    <img class="expand-icon" src="expand.svg" alt="">
+                </div>
+            </button>
+            <div class="panel">
+                <ul>
+                    <li>Cabela's club bank Software Developer</li>
+                    <li>Z3 Technology Engineering intern</li>
+                    <li>Sandhills publishing Software Developer Intern </li>
+                </ul>
+            </div>
+            <button class="accordian">
+                <div>
+                    Skills
+                </div>
+                <div class="expand-container">
+                    <img class="expand-icon" src="expand.svg" alt="">
+                </div>
+            </button>
+            <div class="panel">
+                <p class="skills-header">
+                    Skills
+                </p>
+                <ul>
+                    <li>Python</li>
+                    <li>Javascript</li>
+                    <li>c#</li>
+                    <li>.net</li>
+                    <li>css</li>
+                    <li>html</li>
+                </ul>
+            </div>
         </div>
     </div>
     <!--#include virtual="./footer.html"-->
+    <script>
+        var acc = document.getElementsByClassName("accordian");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
 </body>
+
 </html>
