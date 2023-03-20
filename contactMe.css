@@ -45,7 +45,7 @@ form p {
       border: 0;
       outline: 0;
       border-bottom: 2px solid var(--main-dark);
-      color: var(--main-light);
+      color: var(--main-dark);
     }
 
     form div .submit {
