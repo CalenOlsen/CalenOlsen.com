@@ -26,7 +26,50 @@
 
 </head>
 <body>
-    <!--#include virtual="./header.html"-->
+
+    <header class="header-wrapper sticky">
+        <div class="name">
+            <a style="text-decoration:none" href="./home.html">
+                Calen Olsen
+            </a>
+        </div>
+        <div class="extra-info">
+            <div class="experience">
+                <a style="text-decoration:none" href="./home.html">
+                    Experince
+                </a>
+            </div>
+            <div class="education">
+                <a style="text-decoration:none" href="./home.html">
+                    Education
+                </a>
+            </div>
+            <div class="skills">
+                <a style="text-decoration:none" href="./home.html">
+                    Skill
+                </a>
+            </div>
+            <div class="contact-me">
+                <a style="text-decoration:none" href="./contactMe.html">
+                    Contact Me
+                </a>
+            </div>
+            <div class="about-me">
+                <a style="text-decoration:none" href="./home.html">
+                    About Me
+                </a>
+            </div>
+            <div>
+                <label>Change theme</label>
+                <select onchange="changeTheme(this.selectedIndex);" onfocus="this.selectedIndex = -1;">
+                    <option>Dark</option>
+                    <option>Light</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+
     <div class="content-wrapper-wrapper">
         <div class="content-wrapper">
             <div class="top-header">
@@ -97,7 +140,24 @@
             </div>
         </div>
     </div>
-    <!--#include virtual="./footer.html"-->
+
+    <footer>
+        <table class="footer-table">
+            <tr>
+                <td>
+                    Calen Olsen
+                </td>
+                <td>
+                    University of Nebraska Linoln
+                </td>
+                <td>
+                    Established 2000
+                </td>
+            </tr>
+        </table>
+    </footer>
+
+
     <script>
         var acc = document.getElementsByClassName("accordian");
         var i;

@@ -102,58 +102,117 @@
 </head>
 
 <body>
-  <!--#include virtual="./header.html"-->
-  <div class="content-wrapper-wrapper">
-    <div class="content-wrapper">
-      <h2>
-        Like what you see? Send me an automated email with some contact info and I will reach out to you soon!
-      </h2>
-      <form name="contactme" id="contactme" action="javascript:handleIt()" onsubmit="return validateRecaptcha();">
-        <div class="contact-info">
-          <p>About you</p>
-          <label>First Name:</label>
-          <input name="firstName" type="text">
-          <label>Last Name:</label>
-          <input name="lastName" type="text">
-          <label>Company:</label>
-          <input name="company" type="text">
-        </div>
 
-        <div class="contact-info">
-          <p>Contact Info</p>
-          <label>Email:</label>
-          <input name="email" type="text">
-          <label>Phone Number:</label>
-          <input name="phoneNumber" type="text">
+    <header class="header-wrapper sticky">
+        <div class="name">
+            <a style="text-decoration:none" href="./home.html">
+                Calen Olsen
+            </a>
         </div>
-        <div class="contact-info" style="flex-direction: column;">
-          <p>Extras</p>
-          <div style="align-items: center;">
-            <label>Extra Info:</label>
-            <textarea name="extraInfo" type="text"></textarea>
-          </div>
-          <div>
-            <label>Rate the site:</label>
-            <input type="radio" id="1star" name="rating" value="1">
-            <label for="age1">1 star</label>
-            <input type="radio" id="2star" name="rating" value="2">
-            <label for="age1">2 stars</label>
-            <input type="radio" id="3star" name="rating" value="3">
-            <label for="age1">3 stars</label>
-            <input type="radio" id="4star" name="rating" value="4">
-            <label for="age1">4 stars</label>
-            <input type="radio" id="5star" name="rating" value="5">
-            <label for="age1">5 stars</label>
-          </div>
+        <div class="extra-info">
+            <div class="experience">
+                <a style="text-decoration:none" href="./home.html">
+                    Experince
+                </a>
+            </div>
+            <div class="education">
+                <a style="text-decoration:none" href="./home.html">
+                    Education
+                </a>
+            </div>
+            <div class="skills">
+                <a style="text-decoration:none" href="./home.html">
+                    Skill
+                </a>
+            </div>
+            <div class="contact-me">
+                <a style="text-decoration:none" href="./contactMe.html">
+                    Contact Me
+                </a>
+            </div>
+            <div class="about-me">
+                <a style="text-decoration:none" href="./home.html">
+                    About Me
+                </a>
+            </div>
+            <div>
+                <label>Change theme</label>
+                <select onchange="changeTheme(this.selectedIndex);" onfocus="this.selectedIndex = -1;">
+                    <option>Dark</option>
+                    <option>Light</option>
+                </select>
+            </div>
         </div>
-          <div class="g-recaptcha" data-sitekey="6LdbaqokAAAAAD4qqBm78sJ7AkFp3X8v8mwtGM5w"></div>
-          <div>
-            <input type="submit" value="Reach Out" class="submit">
-          </div>
-      </form>
+    </header>
+
+
+    <div class="content-wrapper-wrapper">
+        <div class="content-wrapper">
+            <h2>
+                Like what you see? Send me an automated email with some contact info and I will reach out to you soon!
+            </h2>
+            <form name="contactme" id="contactme" action="javascript:handleIt()" onsubmit="return validateRecaptcha();">
+                <div class="contact-info">
+                    <p>About you</p>
+                    <label>First Name:</label>
+                    <input name="firstName" type="text">
+                    <label>Last Name:</label>
+                    <input name="lastName" type="text">
+                    <label>Company:</label>
+                    <input name="company" type="text">
+                </div>
+
+                <div class="contact-info">
+                    <p>Contact Info</p>
+                    <label>Email:</label>
+                    <input name="email" type="text">
+                    <label>Phone Number:</label>
+                    <input name="phoneNumber" type="text">
+                </div>
+                <div class="contact-info" style="flex-direction: column;">
+                    <p>Extras</p>
+                    <div style="align-items: center;">
+                        <label>Extra Info:</label>
+                        <textarea name="extraInfo" type="text"></textarea>
+                    </div>
+                    <div>
+                        <label>Rate the site:</label>
+                        <input type="radio" id="1star" name="rating" value="1">
+                        <label for="age1">1 star</label>
+                        <input type="radio" id="2star" name="rating" value="2">
+                        <label for="age1">2 stars</label>
+                        <input type="radio" id="3star" name="rating" value="3">
+                        <label for="age1">3 stars</label>
+                        <input type="radio" id="4star" name="rating" value="4">
+                        <label for="age1">4 stars</label>
+                        <input type="radio" id="5star" name="rating" value="5">
+                        <label for="age1">5 stars</label>
+                    </div>
+                </div>
+                <div class="g-recaptcha" data-sitekey="6LdbaqokAAAAAD4qqBm78sJ7AkFp3X8v8mwtGM5w"></div>
+                <div>
+                    <input type="submit" value="Reach Out" class="submit">
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
-  <!--#include virtual="./footer.html"-->
+
+    <footer>
+        <table class="footer-table">
+            <tr>
+                <td>
+                    Calen Olsen
+                </td>
+                <td>
+                    University of Nebraska Linoln
+                </td>
+                <td>
+                    Established 2000
+                </td>
+            </tr>
+        </table>
+    </footer>
+
 </body>
 
 </html>
