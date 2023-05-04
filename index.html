@@ -17,9 +17,7 @@
                 element.className = "light-mode"
             }
         }
-    </script>
-
-    
+    </script>  
 
 </head>
 <body>
@@ -68,74 +66,87 @@
 
 
     <div class="content-wrapper-wrapper">
-        <div class="content-wrapper">
-            <div class="top-header">
-                <img src="headshot.jpeg" alt="Headshot">
-                <div>
-                    <h1>
-                        TLDR;
-                    </h1>
-                    <p>
-                        Insert Elevator pitch <br />
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <div class="resume-download">
-                        View Resume
-                        <img class="download-icon" src="download-icon.svg" alt="">
-                    </div>
-                </div>
+      <div class="content-wrapper">
+        <div class="top-header">
+          <img src="headshot.jpeg" alt="Headshot">
+          <div>
+            <h1>
+              TLDR;
+            </h1>
+            <p>
+              Insert Elevator pitch <br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <div onclick="location.href='./resume 2023 Calen Olsen.pdf';" style="cursor: pointer;" class="resume-download">
+              View Resume
+              <img class="download-icon" src="download-icon.svg" alt="">
             </div>
-            <br />
-            <button class="accordian">
-                <div>
-                    Education
-                </div>
-                <div class="expand-container">
-                    <img class="expand-icon" src="expand.svg" alt="">
-                </div>
-            </button>
-            <div class="panel">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-            </div>
-            <button class="accordian">
-                <div>
-                    Experience
-                </div>
-                <div class="expand-container">
-                    <img class="expand-icon" src="expand.svg" alt="">
-                </div>
-            </button>
-            <div class="panel">
-                <ul>
-                    <li>Cabela's club bank Software Developer</li>
-                    <li>Z3 Technology Engineering intern</li>
-                    <li>Sandhills publishing Software Developer Intern </li>
-                </ul>
-            </div>
-            <button class="accordian">
-                <div>
-                    Skills
-                </div>
-                <div class="expand-container">
-                    <img class="expand-icon" src="expand.svg" alt="">
-                </div>
-            </button>
-            <div class="panel">
-                <p class="skills-header">
-                    Skills
-                </p>
-                <ul>
-                    <li>Python</li>
-                    <li>Javascript</li>
-                    <li>c#</li>
-                    <li>.net</li>
-                    <li>css</li>
-                    <li>html</li>
-                </ul>
-            </div>
+          </div>
         </div>
+        <br />
+        <button class="accordian">
+          <div>
+            Education
+          </div>
+          <div class="expand-container">
+            <img class="expand-icon" src="expand.svg" alt="">
+          </div>
+        </button>
+        <div class="panel">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <button class="accordian">
+          <div>
+            Experience
+          </div>
+          <div class="expand-container">
+            <img class="expand-icon" src="expand.svg" alt="">
+          </div>
+        </button>
+        <div class="panel">
+          <ul>
+            <li>Cabela's club bank Software Developer</li>
+            <li>Z3 Technology Engineering intern</li>
+            <li>Sandhills publishing Software Developer Intern </li>
+          </ul>
+        </div>
+        <button class="accordian">
+          <div>
+            Skills
+          </div>
+          <div class="expand-container">
+            <img class="expand-icon" src="expand.svg" alt="">
+          </div>
+        </button>
+        <div class="panel">
+          <p class="skills-header">
+            Skills
+          </p>
+          <ul>
+            <li>Python</li>
+            <li>Javascript</li>
+            <li>c#</li>
+            <li>.net</li>
+            <li>css</li>
+            <li>html</li>
+          </ul>
+        </div>
+        <button class="accordian">
+          <div style="white-space: nowrap">
+            View PDF Resume
+          </div>
+          <div class="expand-container">
+            <img class="expand-icon" src="expand.svg" alt="">
+          </div>
+        </button>
+        <div class="panel">
+          <div style="width:98%; height: 500px; margin: 10px;">
+            <embed src="./resume 2023 Calen Olsen.pdf#toolbar=0" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
     </div>
 
     <footer>
@@ -167,7 +178,7 @@
                     panel.style.maxHeight = null;
                 } else {
                     panel.style.maxHeight = panel.scrollHeight + "px";
-                }
+              }
             });
         }
     </script>

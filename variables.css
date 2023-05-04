@@ -33,7 +33,8 @@ body {
   margin-top: 58px;
 /*  background-color: var(--main-dark);
   color: var(--main-light);*/
-  height: 1000px;
+  height: auto;
+ 
 }
 
 .content-wrapper {

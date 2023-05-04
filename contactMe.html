@@ -2,102 +2,121 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="variables.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="footer.css">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="contactMe.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <link rel="stylesheet" href="variables.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="contactMe.css">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-    <script>
-        function validateRecaptcha() {
-            var response = grecaptcha.getResponse();
-            if (response.length === 0) {
-                alert("I don't want spam! Are you a human?");
-                return false;
-            } else {
-                return true;
-            }
-        }
-    </script>
+  <script type="text/javascript"
+          src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("yh9pprloFKIdjNcJu");
+    })();
+  </script>
 
-    <script type="text/javascript">
+  <script>
+    function validateRecaptcha() {
+      console.log("bet?")
+      var response = grecaptcha.getResponse();
+      if (response.length === 0) {
+        alert("I don't want spam! Are you a human?");
+        return false;
+      } else {
+        return true;
+      }
+    }
+  </script>
 
-        const validateEmail = (email) => {
-            return String(email)
-                .toLowerCase()
-                .match(
-                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                );
-        };
+  <script type="text/javascript">
 
-        const validatePhoneNumber = (phoneNumber) => {
-            if (inputtxt.value.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-        function handleIt() {
-            let firstName = document.forms["contactme"]["firstName"].value;
-            let lastName = document.forms["contactme"]["lastName"].value;
-            let company = document.forms["contactme"]["company"].value;
-            let email = document.forms["contactme"]["email"].value;
-            let phoneNumber = document.forms["contactme"]["phoneNumber"].value;
-            let extraInfo = document.forms["contactme"]["extraInfo"].value;
+    const validateEmail = (email) => {
+      return String(email)
+        .toLowerCase()
+        .match(
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+    };
 
-            let contactNote = ""
+    const validatePhoneNumber = (phoneNumber) => {
+      if (inputtxt.value.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+    function handleIt() {
+      console.log("handle?")
+      let firstName = document.forms["contactme"]["firstName"].value;
+      let lastName = document.forms["contactme"]["lastName"].value;
+      let company = document.forms["contactme"]["company"].value;
+      let email = document.forms["contactme"]["email"].value;
+      let phoneNumber = document.forms["contactme"]["phoneNumber"].value;
+      let extraInfo = document.forms["contactme"]["extraInfo"].value;
 
-            let emailValid = false
-            if (validateEmail(email)) {
-                emailValid = true
-            } else {
-                alert("You have entered an invalid email address!")
-                return;
-            }
+      let contactNote = ""
 
-            //phone number validation later
-            // let phoneValid = false
-            // if (validateEmail(phoneNumber)) {
-            //     emailValid = true
-            // }else{
-            //     alert("You have entered an invalid Phone Number!")
-            //     return;
-            // }
+      let emailValid = false
+      if (validateEmail(email)) {
+        emailValid = true
+      } else {
+        alert("You have entered an invalid email address!")
+        return;
+      }
 
-            if (emailValid) {
-                contactNote = "Thank you for leaving a email I will reach out to either " + phoneNumber + " or " + email + "."
-            }
+      //phone number validation later
+      // let phoneValid = false
+      // if (validateEmail(phoneNumber)) {
+      //     emailValid = true
+      // }else{
+      //     alert("You have entered an invalid Phone Number!")
+      //     return;
+      // }
 
-            var rating = ""
-            var ele = document.getElementsByName('rating');
+      if (emailValid) {
+        contactNote = "Thank you for leaving a email I will reach out to either " + phoneNumber + " or " + email + "."
+      }
 
-            for (i = 0; i < ele.length; i++) {
-                if (ele[i].checked)
-                    rating = "Thank you for the " + ele[i].value + " star rating";
-            }
+      var rating = ""
+      var ele = document.getElementsByName('rating');
 
-            alert("Hello, " + firstName + " " + lastName + " from " + company + "\n" + contactNote + "\n" + "Then we can also discuss " + extraInfo + "\n" + rating);
-        }
+      for (i = 0; i < ele.length; i++) {
+        if (ele[i].checked)
+          rating = "Thank you for the " + ele[i].value + " star rating";
+      }
 
-    </script>
+      alert("Thank you for leaving a message I will hopefully get in touch soon");
 
-    <script>
-        function changeTheme(selectedTheme) {
-            console.log(selectedTheme);
+      emailjs.send("service_27qhbqg", "template_evb3g9v", {
+        from_name: firstName +" " + lastName,
+        company: company,
+        email: email,
+        phoneNumber: phoneNumber,
+        extraInfo: extraInfo,
+        stars: rating,
+      });    }
 
-            var element = document.body;
-            if (selectedTheme == 0) {
-                element.className = "";
-            } else if (selectedTheme == 1) {
-                element.className = "light-mode"
-            }
+  </script>
 
-            console.log(element.classList)
+  <script>
+    function changeTheme(selectedTheme) {
+      console.log(selectedTheme);
 
-        }
-    </script>
+      var element = document.body;
+      if (selectedTheme == 0) {
+        element.className = "";
+      } else if (selectedTheme == 1) {
+        element.className = "light-mode"
+      }
+
+      console.log(element.classList)
+
+    }
+  </script>
 
 </head>
 
@@ -189,7 +208,7 @@
                         <label for="age1">5 stars</label>
                     </div>
                 </div>
-                <div class="g-recaptcha" data-sitekey="6LddABslAAAAACbi2EWZvG468czurUHGAoGxDE5T"></div>
+                <div class="g-recaptcha" data-sitekey="6LfbNeAlAAAAAB2QUnw2OqOpWVeGr9S_2vX8R2vJ"></div>
                 <div>
                     <input type="submit" value="Reach Out" class="submit">
                 </div>
