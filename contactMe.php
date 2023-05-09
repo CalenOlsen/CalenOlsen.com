@@ -12,13 +12,101 @@
   <script type="text/javascript"
           src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
   </script>
+
+
+     <?php
+     echo '<script>console.log("test")</script>';
+
+     function saveToDB()
+     {
+         $dbLocation = "localhost";
+         $dbUsername = "root";
+         $dbPassword = "root";
+         $dbName = "messages";
+
+         if (!isset($dbLocation)) {
+             echo "Database location is missing.<br>
+                  Connection script now terminating.";
+             exit(0);
+         }
+
+         if (!isset($dbUsername)) {
+             echo "Database username is missing.<br>
+                  Connection script now terminating.";
+             exit(0);
+         }
+
+         if (!isset($dbPassword)) {
+             echo "Database password is missing.<br>
+                  Connection script now terminating.";
+             exit(0);
+         }
+
+         if (!isset($dbName)) {
+             echo "Database name is missing.<br>
+                  Connection script now terminating.";
+             exit(0);
+         }
+
+         $db = mysqli_connect($dbLocation, $dbUsername, $dbPassword, $dbName);
+
+         if (mysqli_connect_errno() || $db == null) {
+             printf(
+                 "Database connection failed: %s<br>
+                  Connection script now terminating.",
+                 mysqli_connect_error()
+             );
+             exit(0);
+         }
+
+         echo '<script>console.log("save?")</script>';
+
+         if (emailAlreadyExists($db, $_POST["email"])) {
+             echo '<script>console.log("email....?")</script>';
+
+             echo "<h3>email has been registered already.</h3>";
+         } else {
+             echo '<script>console.log("good!....?")</script>';
+
+             $query = "INSERT INTO messages(Email, FirstName, LastName, Company, Phone, Message, Rating) VALUES ('$_POST[email]',  '$_POST[firstName]','$_POST[lastName]','$_POST[company]','$_POST[phoneNumber]','$_POST[extraInfo]','$_POST[rating]');";
+             $success = mysqli_query($db, $query);
+             echo '<script>console.log("bet")</script>';
+
+             echo "<h3>Thank you for registering </h3>";
+         }
+         mysqli_close($db);
+     }
+     echo '<script>console.log("reset")</script>';
+
+     if (isset($_POST["email"])) {
+         echo '<script>console.log("posted")</script>';
+
+         saveToDB();
+     }
+
+     function emailAlreadyExists($db, $email)
+     {
+         echo '<script>console.log("email already exist....?")</script>';
+
+         $query = "SELECT *
+                FROM messages 
+                WHERE Email = '$email'";
+         $customers = mysqli_query($db, $query);
+         $numRecords = mysqli_num_rows($customers);
+
+         echo '<script>console.log("not faile....?")</script>';
+
+         return $numRecords > 0 ? true : false;
+     }
+     ?>
+
   <script type="text/javascript">
     (function () {
       emailjs.init("yh9pprloFKIdjNcJu");
     })();
   </script>
 
-  <script>
+  <script type="text/javascript">
     function validateRecaptcha() {
       console.log("bet?")
       var response = grecaptcha.getResponse();
@@ -26,6 +114,7 @@
         alert("I don't want spam! Are you a human?");
         return false;
       } else {
+        handleIt()
         return true;
       }
     }
@@ -89,8 +178,6 @@
           rating = "Thank you for the " + ele[i].value + " star rating";
       }
 
-      alert("Thank you for leaving a message I will hopefully get in touch soon");
-
       emailjs.send("service_27qhbqg", "template_evb3g9v", {
         from_name: firstName +" " + lastName,
         company: company,
@@ -98,8 +185,14 @@
         phoneNumber: phoneNumber,
         extraInfo: extraInfo,
         stars: rating,
-      });    }
+      });    
 
+     
+
+        alert("Thank you for leaving a message I will hopefully get in touch soon");
+
+      console.log("testing: ");
+    }
   </script>
 
   <script>
@@ -145,7 +238,7 @@
                 </a>
             </div>
             <div class="contact-me">
-                <a style="text-decoration:none" href="./contactMe.html">
+                <a style="text-decoration:none" href="./contactMe.php">
                     Contact Me
                 </a>
             </div>
@@ -170,7 +263,7 @@
             <h2>
                 Like what you see? Send me an automated email with some contact info and I will reach out to you soon!
             </h2>
-            <form name="contactme" id="contactme" action="javascript:handleIt()" onsubmit="return validateRecaptcha();">
+            <form name="contactme" id="contactme" method="post" action="contactMe.php" onsubmit="return validateRecaptcha();">
                 <div class="contact-info">
                     <p>About you</p>
                     <label>First Name:</label>
